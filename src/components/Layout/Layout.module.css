@@ -1,0 +1,18 @@
+
+
+.navbaritem {
+    
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navcontainer {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbaritem .active {
+    color: red;
+}
