@@ -6,7 +6,7 @@
 // /movies/get-movie-credits запит інформації про акторський склад для сторінки кінофільму.
 // /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
 
-export class Tmdb {
+export class tmdbConnector {
     #BASE_URL = 'https://api.themoviedb.org/3';
     #options = {
         method: 'GET',
@@ -31,10 +31,19 @@ export class Tmdb {
         
         return 
     }
-    //searchMovie(query)
-    //getMovie(film)
-    //getCredits(film)
-    //getReviews(film)
+    async searchMovie(query) {
+        console.log("search Movies");
+    }
+    async getMovie(film) {
+        console.log("get details about movie");
+    }
+    async getCredits(film){
+        console.log("get actors list");
+    }
+    async getReviews(film){
+        console.log("get reviews");
+    }
+    
     getTest () {
         return "Test ok";
     }

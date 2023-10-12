@@ -1,8 +1,10 @@
 import css from "./Home.module.css";
-import { Tmdb } from "../../utils/tmdbapi.js";
+import  {tmdbConnector} from "../../utils/tmdbapi.js";
+
+
 
 export default function Home() {
-  const api = new Tmdb();
+  const api = new tmdbConnector();
     console.log(api);
     console.log(api.getTest());
     let collection = '';
