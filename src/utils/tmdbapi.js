@@ -6,22 +6,37 @@
 // /movies/get-movie-credits запит інформації про акторський склад для сторінки кінофільму.
 // /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
 
-export class tmdbapi {
-    BASE_URL = '';
-    API_KEY = 'e42f5455403aa7ff2e2124baf07a9fc1';
+export class Tmdb {
+    #BASE_URL = 'https://api.themoviedb.org/3';
+    #options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDJmNTQ1NTQwM2FhN2ZmMmUyMTI0YmFmMDdhOWZjMSIsInN1YiI6IjY1MDQ0YTQyNjNhYWQyMDBlMTJkMmI0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7-49xlVvmRIQfQ34b_FNH3-Pt3d04wUbwos5HeITHMY',
+        }
+    }
     async getTrending() {
+        let response = null;
         try {
-            const test = await fetch('https://api.themoviedb.org/3/movie/157336?api_key=e42f5455403aa7ff2e2124baf07a9fc1');
-            return test;
+            const data = await fetch(`${this.#BASE_URL}/trending/movie/day`, this.#options);
+            if (!data.ok) {
+                throw new Error(data.error);
+            }
+
+            response = data.results;
+            
         } catch (error) {
             return error;
         }
         
-
+        return 
     }
     //searchMovie(query)
     //getMovie(film)
     //getCredits(film)
     //getReviews(film)
+    getTest () {
+        return "Test ok";
+    }
 
 }
