@@ -1,24 +1,23 @@
 import css from "./Home.module.css";
-import  {tmdbConnector} from "../../utils/tmdbapi.js";
+import  tmdbConnector from "../../utils/tmdbapi.js";
 
 
 
 export default function Home() {
-  const api = new tmdbConnector();
-    console.log(api);
-    console.log(api.getTest());
-    let collection = '';
-    async function get () {
-        const data = await api.getTrending();
-        setCollection(data);
-    }
+  
+  
+  // tmdbConnector('/trending/all/week?language=en-US')
+  //   .then(response => response.json)
+  //   .then(data => console.log(data))
+  //   .catch(error => console.log(error));
+    
+    
+console.log(process.env);
 
-    function setCollection(data) {
-        this.collection = data;
-    }
-//   console.log(get());
-
-  console.log(collection);
+tmdbConnector('/trending/all/week?language=en-US')
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+  
   return (
     <>
       <p className={css.homepage}>Homepage</p>
