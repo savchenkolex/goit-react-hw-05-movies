@@ -4,12 +4,7 @@ import  tmdbConnector from "../../utils/tmdbapi.js";
 
 
 export default function Home() {
-  
-  
-  // tmdbConnector('/trending/all/week?language=en-US')
-  //   .then(response => response.json)
-  //   .then(data => console.log(data))
-  //   .catch(error => console.log(error));
+
     
     
 console.log(process.env);
