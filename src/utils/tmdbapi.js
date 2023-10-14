@@ -10,7 +10,7 @@ export default async function tmdbConnector (endpoint) {
         method: 'GET',
         headers: {
           accept: 'application/json',
-          Authorization: process.env.REACT_APP_TMDB_TOKEN
+          Authorization: process.env.REACT_APP_TMDB
         }
       };
 
