@@ -23,7 +23,8 @@
 
 .movieTitle {
     display: block;
-    width: 100px;
+    width: 96px;
+    height: 24px;
     font-size: 8px;
     color: #222222;
     text-align: center;
@@ -34,6 +35,7 @@
     padding: 6px 2px;
     border-radius: 8px;
     transition: background-color 250ms linear, font-size 400ms linear;
+    overflow-y: hidden;
 }
 
 .movieTitle:hover {
