@@ -14,7 +14,6 @@ export default function Layout() {
           Movies
         </NavLink>
       </nav>
-      <p>Hello world</p>
       <Outlet />
     </>
   );
