@@ -1,7 +1,7 @@
 import css from "./Home.module.css";
 import tmdbConnector from "../../utils/tmdbapi.js";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import MoviesCards from "../../components/MoviesCards/MoviesCards";
 
 export default function Home() {
   const [trending, setTrending] = useState([]);
@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     tmdbConnector("/trending/all/week?language=en-US")
       .then((response) => {
-        console.log(response.results);
+        // console.log(response.results);
         setTrending(response.results);
       })
       .catch((error) => console.error(error));
@@ -18,25 +18,7 @@ export default function Home() {
   return (
     <div className={css.container}>
       <h2>Most Popular Movies Today</h2>
-      <ul className={css.trendingGrid}>
-        {trending.map((item) => {
-          const fullImgUrl = `https://image.tmdb.org/t/p/w200/${item.poster_path}`;
-          return (
-            <li key={item.id} className={css.listItem}>
-              <Link className={css.movieLink} to={`movies/${item.id}`}>
-                <img
-                  className={css.posterImg}
-                  src={fullImgUrl}
-                  alt={item.title}
-                />
-                <p className={css.movieTitle}>
-                  {item.title ? item.title : item.name}
-                </p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+       <MoviesCards collection={trending} />
     </div>
   );
 }
