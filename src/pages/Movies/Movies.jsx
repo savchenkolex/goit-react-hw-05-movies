@@ -28,7 +28,17 @@ export default function Movies () {
     }, [dataInput]);
 
     useEffect(()=>{
-        console.log(query.get("query"));
+        // console.log(query.get("query"));
+        if(!query.get("query")){
+            return
+        }
+        const endpoint = "/search/movie?query=" + query.get("query");
+        tmdbConnector(endpoint)
+            .then(response => {
+                if (response.results) {
+                    setQueryResult(response.results)
+                }
+            })
 
     },[query]);
 
@@ -56,6 +66,7 @@ export default function Movies () {
 
     return <>
         <div className={css.container}>
+            <Outlet />
             <h2 className={css.pageTitle}>Find Movies by Title</h2>
             <form onSubmit={submitHandler}>
                 <input type="text" onChange={inputHandler}></input>
@@ -63,7 +74,5 @@ export default function Movies () {
             </form>
             <MoviesCards collection={queryResult} />
         </div>
-
-        <Outlet />
     </>
 }

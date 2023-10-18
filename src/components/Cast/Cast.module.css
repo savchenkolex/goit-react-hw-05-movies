@@ -1,0 +1,19 @@
+.castBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.actorCard {
+    display: flex;
+    flex-direction: column-reverse;
+
+    width: 120px;
+}
+
+.actorImg {
+    width: 100px;
+}

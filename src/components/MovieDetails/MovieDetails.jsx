@@ -1,20 +1,36 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import css from './MovieDetails.module.css';
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
+import tmdbConnector from '../../utils/tmdbapi';
 
 export default function MovieDetails () {
-
+const [movie, setMovie] = useState({});
 const {movieId} = useParams();
-//надо получать айди фильма из строки адреса. 
-//можно ли отслеживать через юз еффект
+
 useEffect(()=>{
-    console.log(movieId);
+    // console.log(movieId);
+
+    const endpoint = "/movie/" + movieId;
+    tmdbConnector(endpoint)
+        .then(response => {
+            // console.log(response);
+            setMovie(response);
+        })
 },[movieId])
 
     return <>
         <div className={css.container}>
-            <p>MovieDetails</p>
+            <ul>
+                <li>{movie.tagline}</li>
+                <li>{movie.title}</li>
+                <li>{movie.release_date}</li>
+                <li>{movie.overview}</li>
+            </ul>
         </div>
+        <ul>
+            <li> <Link to="cast" >Cast</Link> </li>
+            <li> <Link to="reviews" >Reviews</Link> </li>
+        </ul>
         <Outlet />
     </>
 }
