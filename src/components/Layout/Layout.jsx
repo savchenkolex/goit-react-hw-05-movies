@@ -1,9 +1,8 @@
 import css from "./Layout.module.css";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Layout() {
-  // const location = useLocation();
-  // console.log(location);
+
   return (
     <>
       <nav className={css.navcontainer}>

@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     tmdbConnector("/trending/all/week?language=en-US")
       .then((response) => {
-        // console.log(response.results);
+        
         setTrending(response.results);
       })
       .catch((error) => console.error(error));
