@@ -10,7 +10,8 @@
 .actorCard {
     display: flex;
     flex-direction: column-reverse;
-
+    justify-content: space-between;
+    align-content: space-between ;
     width: 120px;
 }
 
